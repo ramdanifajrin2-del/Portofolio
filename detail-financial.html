@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Projek - Pengolahan Data Penjualan Produk Menggunakan Formula Excel</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --primary-accent: #10b981;
+            /* Warna Emerald Green khas Excel & Financial System */
+            --text-main: #f3f4f6;
+            --text-sub: #9ca3af;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .glass-box {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #34d399;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 24px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-back:hover {
+            transform: translateX(-5px);
+        }
+
+        .header-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .category-badge {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .project-title {
+            font-size: 2.2rem;
+            margin: 0 0 16px 0;
+            line-height: 1.2;
+        }
+
+        /* STYLES UNTUK GAMBAR SUPAYA PRESISI DI DALAM BORDER */
+        .project-image-container {
+            width: 100%;
+            margin: 25px 0 35px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            background: #000;
+        }
+
+        .project-img,
+        .project-image-container img {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            display: block;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            margin-top: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            color: #34d399;
+        }
+
+        .description {
+            line-height: 1.8;
+            color: #d1d5db;
+        }
+
+        .feature-list {
+            padding-left: 20px;
+            line-height: 1.8;
+            color: #d1d5db;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- LINK KEMBALI KESINI LANGSUNG KE HALAMAN PORTOFOLIO (#projects) -->
+        <a href="index.html#projects" class="btn-back">
+            <i class="fa-solid fa-arrow-left"></i> Kembali ke Portofolio
+        </a>
+
+        <div class="glass-box">
+            <div class="header-meta">
+                <span class="category-badge">Office & Analytics</span>
+                <span style="color: var(--text-sub);">2026</span>
+            </div>
+
+            <h1 class="project-title">Automated Financial & Stock Report System</h1>
+
+            <div class="tech-tags">
+                <span class="tag"><i class="fa-solid fa-file-excel"></i> MS Excel</span>
+                <span class="tag">Pivot Tables</span>
+                <span class="tag">Data Analysis</span>
+                <span class="tag">VLOOKUP</span>
+                <span class="tag">Automated Dashboard</span>
+            </div>
+
+            <!-- HASIL FOTO PROJEK MASUK DI SINI -->
+            <div class="project-image-container">
+                <img src="img/Excel.jpg" alt="Preview Automated Financial & Stock Report System" class="project-img">
+            </div>
+
+            <h2 class="section-title">Ringkasan Projek</h2>
+            <p class="description">
+                Perancangan template laporan keuangan dan manajemen stok barang otomatis berbasis Microsoft Excel.
+                Sistem ini dirancang untuk memangkas waktu pengerjaan alur kerja rekapitulasi data bulanan secara
+                signifikan dengan mengombinasikan formula pencarian otomatis, Pivot Table dinamis, dan visualisasi
+                grafik yang interaktif.
+            </p>
+
+            <h2 class="section-title">Fitur & Keunggulan</h2>
+            <ul class="feature-list">
+                <li><strong>Automated Data Lookup:</strong> Integrasi formula VLOOKUP/XLOOKUP untuk penarikan data
+                    transaksi otomatis tanpa input manual berulang.</li>
+                <li><strong>Dynamic Pivot Reporting:</strong> Ringkasan arus kas, laba rugi, dan perputaran stok barang
+                    yang dapat dipilah berdasarkan periode waktu.</li>
+                <li><strong>Stock Control Alerts:</strong> Penanda visual otomatis saat persediaan barang mencapai batas
+                    minimum.</li>
+                <li><strong>Executive Summary Dashboard:</strong> Tampilan grafik ringkas yang siap dipresentasikan
+                    untuk pengambilan keputusan manajemen.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>

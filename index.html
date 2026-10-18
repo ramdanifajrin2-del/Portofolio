@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhamad Ramdani Novfitra Fajrin | Portfolio</title>
+    <meta name="description"
+        content="Portofolio Resmi Muhamad Ramdani Novfitra Fajrin - Specializing in Frontend Web Development, Product Design, and Microsoft Office Productivity Solutions.">
+    <meta name="keywords"
+        content="Muhamad Ramdani Novfitra Fajrin, Ramdani, Frontend Developer, Product Designer, Microsoft Office, Portfolio, UI UX">
+    <meta name="author" content="Muhamad Ramdani Novfitra Fajrin">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Muhamad Ramdani Novfitra Fajrin | Personal Portfolio">
+    <meta property="og:description"
+        content="Frontend Development, Product Design, & Microsoft Office Solutions Specialist.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Background Ambient Light Spheres -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#hero" class="brand-logo">
+                <span class="logo-accent">M</span>RAMDANI<span class="logo-dot">.</span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link active"><i class="fa-solid fa-house"></i> Beranda</a></li>
+                    <li><a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> Tentang</a></li>
+                    <li><a href="#skills" class="nav-link"><i class="fa-solid fa-code"></i> Keahlian</a></li>
+                    <li><a href="#projects" class="nav-link"><i class="fa-solid fa-folder-open"></i> Portofolio</a></li>
+                    <li><a href="#experience" class="nav-link"><i class="fa-solid fa-briefcase"></i> Pengalaman</a></li>
+                    <li><a href="#contact" class="nav-link"><i class="fa-solid fa-paper-plane"></i> Kontak</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Ubah Tema Dark/Light">
+                    <i class="fa-solid fa-moon icon-dark"></i>
+                    <i class="fa-solid fa-sun icon-light"></i>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Buka Menu Navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="container hero-container">
+                <div class="hero-content" data-reveal="left">
+                    <div class="status-badge">
+                        <span class="pulse-dot"></span>
+                        <span>Open for Work & Collaboration</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Halo, Saya <br>
+                        <span class="gradient-text">Muhamad Ramdani</span> <br>
+                        <span class="name-sub">Novfitra Fajrin</span>
+                    </h1>
+
+                    <div class="typing-container">
+                        <span class="typing-text" id="typingText"></span>
+                        <span class="cursor">&nbsp;</span>
+                    </div>
+
+                    <p class="hero-description">
+                        A fresh graduate with a functional understanding of <strong>UI/UX Design</strong>,
+                        <strong>Frontend Web Development</strong>, and data management using <strong>MS Office</strong>.
+                        Eager to learn, highly adaptable, and ready to explore new challenges and skills to contribute
+                        effectively in the professional world.
+                    </p>
+
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fa-solid fa-rocket"></i> Lihat Portofolio
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fa-solid fa-envelope"></i> Hubungi Saya
+                        </a>
+                        <a href="cv/Muhamad Ramdani Novfitra Fatjer'in-FR.pdf" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-cv" download="Muhamad Ramdani Novfitra Fatjer'in-FR.pdf">
+                            <i class="fa-solid fa-file-arrow-down"></i> Lihat CV
+                        </a>
+                        <a href="https://instagram.com/mramdaninf_" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline">
+                            <i class="fa-brands fa-instagram"></i> @mramdaninf_
+                        </a>
+                        <a href="https://www.linkedin.com/in/muhamadramdani-" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-outline">
+                            <i class="fa-brands fa-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+
+                    <div class="hero-badges">
+                        <div class="badge-item">
+                            <i class="fa-solid fa-palette"></i>
+                            <span>Desain Product</span>
+                        </div>
+                        <div class="badge-item">
+                            <i class="fa-solid fa-code"></i>
+                            <span>Frontend Dev</span>
+                        </div>
+                        <div class="badge-item">
+                            <i class="fa-solid fa-file-excel"></i>
+                            <span>MS Office</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual" data-reveal="right">
+                    <div class="avatar-card glass-card">
+                        <div class="avatar-wrapper">
+                            <div class="avatar-graphic">
+                                <div class="avatar-circle">
+                                    <img src="img/profile.jpg" alt="Muhamad Ramdani Novfitra Fajrin" class="avatar-img">
+                                </div>
+                                <div class="orbit-ring ring-1"></div>
+                                <div class="orbit-ring ring-2"></div>
+
+                                <div class="floating-tech tech-figma" title="Product Design">
+                                    <i class="fa-brands fa-figma"></i>
+                                </div>
+                                <div class="floating-tech tech-code" title="Frontend Code">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+                                <div class="floating-tech tech-office" title="MS Office">
+                                    <i class="fa-solid fa-file-excel"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="avatar-info">
+                            <h3>M. Ramdani Novfitra Fajrin</h3>
+                            <p class="role-subtitle">Fresh Graduate</p>
+                            <div class="social-pills">
+                                <a href="https://www.linkedin.com/in/muhamadramdani-" target="_blank"
+                                    rel="noopener noreferrer" class="social-pill" title="LinkedIn">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://instagram.com/mramdaninf_" target="_blank" rel="noopener noreferrer"
+                                    class="social-pill" title="Instagram">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                                <a href="mailto:ramdaninfajrin2@gmail.com" class="social-pill" title="Email">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </a>
+                                <a href="#contact" class="social-pill" title="Lokasi">
+                                    <i class="fa-solid fa-location-dot"></i> Indonesia
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#about" class="scroll-down-indicator" aria-label="Scroll ke bawah">
+                <span>Scroll Down</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <div class="container">
+                <div class="section-header text-center" data-reveal="up">
+                    <span class="section-subtitle">TENTANG SAYA</span>
+                    <h2 class="section-title">Dedikasi Terhadap Kualitas & Efisiensi</h2>
+                    <div class="title-bar"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-card glass-card" data-reveal="left">
+                        <div class="about-text">
+                            <h3>Halo! Saya Muhamad Ramdani Novfitra Fajrin</h3>
+                            <p>
+                                Fresh graduate S1 Teknik Informatika dari Universitas Indraprasta PGRI dengan pengalaman
+                                PKL sebagai Admin Online di bidang digital printing serta pengalaman membangun aplikasi
+                                berbasis web melalui proyek Sistem Pendukung Keputusan (SPK) penerimaan siswa baru
+                                menggunakan metode MAUT. Memiliki kemampuan dalam pengembangan web, pengolahan data
+                                menggunakan Microsoft Office, serta pembuatan desain grafis berbasis referensi. Pribadi
+                                yang cepat belajar, disiplin, bertanggung jawab, adaptif, dan mampu bekerja dalam tim,
+                                serta memiliki motivasi untuk terus berkembang dan berkontribusi secara profesional di
+                                bidang administrasi, teknologi informasi, maupun desain grafis.
+                            </p>
+
+                        </div>
+
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <span class="stat-number" data-target="9">0</span><span class="stat-plus">+</span>
+                                <span class="stat-label">Aplikasi Dikuasai</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-number" data-target="15">0</span><span class="stat-plus">+</span>
+                                <span class="stat-label">Projek &amp; Desain</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-number" data-target="4">0</span><span class="stat-plus"></span>
+                                <span class="stat-label">Soft Skill</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-pillars" data-reveal="right">
+                        <div class="pillar-card glass-card">
+                            <div class="pillar-icon icon-purple">
+                                <i class="fa-solid fa-pen-nib"></i>
+                            </div>
+                            <div class="pillar-content">
+                                <h4>Desain Grafis</h4>
+                                <p>Merancang grafis, konten visual, dan antarmuka menggunakan Figma, Canva, maupun Adobe
+                                    Photoshop secara profesional.</p>
+                            </div>
+                        </div>
+
+                        <div class="pillar-card glass-card">
+                            <div class="pillar-icon icon-blue">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <div class="pillar-content">
+                                <h4>Frontend Web Development</h4>
+                                <p>Mengembangkan halaman web yang cepat, responsif di semua perangkat, dengan struktur
+                                    kode murni (HTML/CSS/JS) yang bersih.</p>
+                            </div>
+                        </div>
+
+                        <div class="pillar-card glass-card">
+                            <div class="pillar-icon icon-green">
+                                <i class="fa-solid fa-file-lines"></i>
+                            </div>
+                            <div class="pillar-content">
+                                <h4>Microsoft Office Productivity</h4>
+                                <p>Menguasai pengolahan data spreadsheet (Excel), penyusunan dokumen laporan (Word), dan
+                                    presentasi profesional (PowerPoint).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills-section" id="skills">
+            <div class="container">
+                <div class="section-header text-center" data-reveal="up">
+                    <span class="section-subtitle">KEAHLIAN & TECH STACK</span>
+                    <h2 class="section-title">Kemampuan Utama Saya</h2>
+                    <div class="title-bar"></div>
+                </div>
+
+                <!-- Category Filter Tabs -->
+                <div class="skill-tabs" data-reveal="up">
+                    <button class="skill-tab active" data-category="all">Semua Keahlian</button>
+                    <button class="skill-tab" data-category="frontend">Frontend Web</button>
+                    <button class="skill-tab" data-category="office">Microsoft Office</button>
+                    <button class="skill-tab" data-category="database">Database</button>
+                    <button class="skill-tab" data-category="design">Desain Grafis</button>
+                    <button class="skill-tab" data-category="softskill">Soft Skills</button>
+                </div>
+
+                <!-- Skills Grid -->
+                <div class="skills-grid">
+                    <!-- Frontend Skills -->
+                    <div class="skill-card glass-card" data-category="frontend" data-reveal="up">
+                        <div class="skill-head">
+                            <div class="skill-icon icon-html">
+                                <i class="fa-brands fa-html5"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>HTML5 & Semantik</h3>
+                                <span class="skill-tag">Frontend</span>
+                            </div>
+                        </div>
+                        <p class="skill-desc">Struktur web semantik yang rapi, aksesibel, dan teroptimasi SEO.</p>
+                        <div class="skill-level-bar">
+                            <div class="level-fill" style="width: 92%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card glass-card" data-category="frontend" data-reveal="up">
+                        <div class="skill-head">
+                            <div class="skill-icon icon-css">
+                                <i class="fa-brands fa-css3-alt"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>CSS3 & Modern Layout</h3>
+                                <span class="skill-tag">Frontend</span>
+                            </div>
+                        </div>
+                        <p class="skill-desc">CSS Custom Properties, Flexbox, Grid, Glassmorphism, & Animasi CSS.</p>
+                        <div class="skill-level-bar">
+                            <div class="level-fill" style="width: 88%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Desain Grafis Skills -->
+                    <div class="skill-card glass-card" data-category="design" data-reveal="up">
+                        <div class="skill-head">
+                            <div class="skill-icon icon-illustrator">
+                                <i class="fa-brands fa-adobe"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Adobe Illustrator</h3>
+                                <span class="skill-tag">Desain Grafis</span>
+                            </div>
+                        </div>
+                        <p class="skill-desc">Desain vektor profesional untuk logo, ilustrasi, dan materi grafis skala
+                            tinggi.
+                        </p>
+                        <div class="skill-level-bar">
+                            <div class="level-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- MS Office Skills -->
+                    <div class="skill-card glass-card" data-category="office" data-reveal="up">
+                        <div class="skill-head">
+                            <div class="skill-icon icon-excel">
+                                <i class="fa-solid fa-file-excel"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Microsoft Excel Advanced</h3>
+                                <span class="skill-tag">MS Office</span>
+                            </div>
+                        </div>
+                        <p class="skill-desc">Pengolahan rumus kompleks (VLOOKUP/XLOOKUP, IF, Pivot Table
+                            ).</p>
+                        <div class="skill-level-bar">
+                            <div class="level-fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card glass-card" data-category="office" data-reveal="up">
+                        <div class="skill-head">
+                            <div class="skill-icon icon-word">
+                                <i class="fa-solid fa-file-word"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Microsoft Word Professional</h3>
+                                <span class="skill-tag">MS Office</span>
+                            </div>
+                        </div>
+                        <p class="skill-desc">Penyusunan dokumen resmi, surat formal, format laporan rapi, & Mail Merge.
+                        </p>
+                        <div class="skill-level-bar">
+                            <div class="level-fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card glass-card" data-category="office" data-reveal="up">
+                        <div class="skill-head">
+                            <div class="skill-icon icon-ppt">
+                                <i class="fa-solid fa-file-powerpoint"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Microsoft PowerPoint Design</h3>
+                                <span class="skill-tag">MS Office</span>
+                            </div>
+                        </div>
+                        <p class="skill-desc">Desain slide presentasi interaktif, visualisasi poin bisnis, & animasi
+                            transisi.</p>
+                        <div class="skill-level-bar">
+                            <div class="level-fill" style="width: 92%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card" data-category="database" data-reveal="up">
+                        <div class="skill-head">
+                            <div class="skill-icon icon-mysql">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>MySQL</h3>
+                                <span class="skill-tag">Database</span>
+                            </div>
+                        </div>
+                        <p class="skill-desc">Pengelolaan basis data relasional, query kompleks, dan optimasi performa.
+                        </p>
+                        <div class="skill-level-bar">
+                            <div class="level-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <!-- Soft Skills -->
+                    <div class="skill-card glass-card" data-category="softskill" data-reveal="up">
+                        <div class="skill-head">
+                            <div class="skill-icon icon-communication">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Komunikasi Efektif</h3>
+                                <span class="skill-tag">Soft Skill</span>
+                            </div>
+                        </div>
+                        <p class="skill-desc">Mampu menyampaikan ide, berkolaborasi dengan tim, dan menyelaraskan
+                            kebutuhan proyek dengan jelas.</p>
+                        <div class="skill-level-bar">
+                            <div class="level-fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card glass-card" data-category="softskill" data-reveal="up">
+                        <div class="skill-head">
+                            <div class="skill-icon icon-problemsolving">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Problem Solving</h3>
+                                <span class="skill-tag">Soft Skill</span>
+                            </div>
+                        </div>
+                        <p class="skill-desc">Menganalisis akar masalah secara kritis dan merumuskan solusi yang
+                            praktis, efisien, serta berorientasi hasil.</p>
+                        <div class="skill-level-bar">
+                            <div class="level-fill" style="width: 88%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card glass-card" data-category="softskill" data-reveal="up">
+                        <div class="skill-head">
+                            <div class="skill-icon icon-discipline">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Disiplin & Konsistensi</h3>
+                                <span class="skill-tag">Soft Skill</span>
+                            </div>
+                        </div>
+                        <p class="skill-desc">Menjaga ketepatan waktu, komitmen terhadap jadwal, dan konsistensi dalam
+                            setiap pekerjaan sehari-hari.</p>
+                        <div class="skill-level-bar">
+                            <div class="level-fill" style="width: 92%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card glass-card" data-category="softskill" data-reveal="up">
+                        <div class="skill-head">
+                            <div class="skill-icon icon-responsibility">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Tanggung Jawab & Integritas</h3>
+                                <span class="skill-tag">Soft Skill</span>
+                            </div>
+                        </div>
+                        <p class="skill-desc">Berkomitmen penuh pada tenggat waktu (deadline), menjaga kualitas hasil
+                            kerja.</p>
+                        <div class="skill-level-bar">
+                            <div class="level-fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Showcase Section -->
+        <section class="projects-section" id="projects">
+            <div class="container">
+                <div class="section-header text-center" data-reveal="up">
+                    <span class="section-subtitle">PORTOFOLIO KARYA</span>
+                    <h2 class="section-title">Projek & Showcase Pilihan</h2>
+                    <div class="title-bar"></div>
+                </div>
+
+                <!-- Project Filters -->
+                <div class="project-filters" data-reveal="up">
+                    <button class="project-filter-btn active" data-filter="all">Semua Projek</button>
+                    <button class="project-filter-btn" data-filter="design">Desain Product</button>
+                    <button class="project-filter-btn" data-filter="web">Frontend Web</button>
+                    <button class="project-filter-btn" data-filter="office">Office & Analytics</button>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid">
+                    <!-- Project Item 2 -->
+                    <div class="project-card glass-card" data-category="web" data-reveal="up">
+                        <a href="detail-analytics.html" class="project-preview preview-web"
+                            aria-label="Lihat Detail SPK MAUT Web Dashboard">
+                            <div class="preview-overlay">
+                                <span class="preview-badge">Interactive Web App</span>
+                            </div>
+                            <div class="preview-mockup">
+                                <div class="mockup-header">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="mockup-screen">
+                                    <img src="img/Dashboard.jpg" alt="Preview SPK MAUT Web Dashboard" loading="lazy">
+                                </div>
+                            </div>
+                        </a>
+
+                        <div class="project-body">
+                            <div class="project-meta">
+                                <span class="category-tag">Frontend Web</span>
+                                <span class="date-tag">2026</span>
+                            </div>
+                            <h3 class="project-title">SPK MAUT Web Dashboard</h3>
+                            <p class="project-excerpt">
+                                Dashboard Sistem Pendukung Keputusan (SPK) penerimaan siswa baru berbasis metode MAUT
+                                untuk SMP Dwiguna dengan visualisasi peringkat siswa dan integrasi data intuitif.
+                            </p>
+                            <div class="project-tech">
+                                <span>HTML5</span>
+                                <span>CSS3 Grid</span>
+                                <span>JavaScript</span>
+                                <span>Data Visualization</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="detail-analytics.html" class="btn btn-sm btn-primary">
+                                    <i class="fa-solid fa-circle-info"></i> Detail Projek
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Item 3 -->
+                    <div class="project-card glass-card" data-category="office" data-reveal="up">
+                        <a href="detail-financial.html" class="project-preview preview-office"
+                            aria-label="Lihat Detail Automated Financial & Stock Report System">
+                            <div class="preview-overlay">
+                                <span class="preview-badge">Spreadsheet System</span>
+                            </div>
+                            <div class="preview-mockup">
+                                <div class="mockup-header">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="mockup-screen">
+                                    <img src="img/Excel.jpg" alt="Preview Automated Financial & Stock Report System"
+                                        loading="lazy">
+                                </div>
+                            </div>
+                        </a>
+
+                        <div class="project-body">
+                            <div class="project-meta">
+                                <span class="category-tag">Office & Analytics</span>
+                                <span class="date-tag">2026</span>
+                            </div>
+                            <h3 class="project-title">Automated Financial & Stock Report System</h3>
+                            <p class="project-excerpt">
+                                Template laporan keuangan dan manajemen stok barang otomatis di Microsoft Excel
+                                menggunakan formula pencarian otomatis, Pivot Table dinamis, dan visualisasi data.
+                            </p>
+                            <div class="project-tech">
+                                <span>MS Excel</span>
+                                <span>Pivot Tables</span>
+                                <span>Data Analysis</span>
+                                <span>VLOOKUP</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="detail-financial.html" class="btn btn-sm btn-primary">
+                                    <i class="fa-solid fa-circle-info"></i> Detail Projek
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Item 4 -->
+                    <div class="project-card glass-card" data-category="web design" data-reveal="up">
+                        <a href="detail-corporate.html" class="project-preview preview-landing"
+                            aria-label="Lihat Detail Sistem Informasi Perpustakaan MA Al-Khairiyah">
+                            <div class="preview-overlay">
+                                <span class="preview-badge">Library System</span>
+                            </div>
+                            <div class="preview-mockup">
+                                <div class="mockup-header">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="mockup-screen">
+                                    <img src="img/Login Perpus.jpg"
+                                        alt="Preview Sistem Informasi Perpustakaan MA Al-Khairiyah" loading="lazy">
+                                </div>
+                            </div>
+                        </a>
+
+                        <div class="project-body">
+                            <div class="project-meta">
+                                <span class="category-tag">Frontend Web & UI</span>
+                                <span class="date-tag">2026</span>
+                            </div>
+                            <h3 class="project-title">Sistem Informasi Perpustakaan MA Al-Khairiyah</h3>
+                            <p class="project-excerpt">
+                                Antarmuka sistem informasi perpustakaan sekolah dengan fitur autentikasi login pengguna,
+                                desain split-screen modern dua sisi, dan aksesibilitas ramah siswa.
+                            </p>
+                            <div class="project-tech">
+                                <span>HTML5</span>
+                                <span>CSS3 Modern</span>
+                                <span>JavaScript</span>
+                                <span>UI/UX Design</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="detail-corporate.html" class="btn btn-sm btn-primary">
+                                    <i class="fa-solid fa-circle-info"></i> Detail Projek
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Education Section -->
+        <section class="experience-section" id="experience">
+            <div class="container">
+                <div class="section-header text-center" data-reveal="up">
+                    <span class="section-subtitle">JEJAK LANGKAH</span>
+                    <h2 class="section-title">Pengalaman & Pendidikan</h2>
+                    <div class="title-bar"></div>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-item" data-reveal="left">
+                        <div class="timeline-dot">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-date"><i class="fa-solid fa-graduation-cap"></i> Pendidikan</span>
+                            <h3>Universitas Indraprasta PGRI</h3>
+                            <p class="timeline-sub">S1 Teknik Informatika &bull; IPK 3.20</p>
+
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-reveal="right">
+                        <div class="timeline-dot">
+                            <i class="fa-solid fa-laptop"></i>
+                        </div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-date"><i class="fa-solid fa-calendar-days"></i> Pengalaman
+                            </span>
+                            <h3>MA. AL-Khairiyah</h3>
+                            <p class="timeline-sub">Kuliah Kerja Praktek</p>
+                            <p> 1. Mengembangkan aplikasi perpustakaan berbasis desktop menggunakan Java (NetBeans)
+                                untuk mendigitalisasi proses sirkulasi
+                                peminjaman dan pengembalian buku.
+                            </p>
+                            <p>2. Mengintegrasikan database untuk pengelolaan ratusan koleksi buku, pencatatan data
+                                anggota, dan kalkulasi denda otomatis.
+                                Membuat fitur cetak kartu anggota otomatis dan rekapitulasi laporan inventaris
+                                perpustakaan.
+                            </p>
+                            <p>3. Membuat fitur cetak kartu anggota otomatis dan rekapitulasi laporan inventaris
+                                perpustakaan.</p>
+                            <p>4. Membuat fitur laporan inventaris dan sirkulasi otomatis serta melaksanakan pengujian
+                                sistem dan pendampingan pengoperasian
+                                aplikasi untuk mempermudah pekerjaan staf perpustakaan</p>
+
+                            <h3>Smp Dwiguna</h3>
+                            <p class="timeline-sub">Tugas Akhir</p>
+                            <p>1. Mengembangkan Sistem Pendukung Keputusan (SPK) berbasis web untuk seleksi penerimaan
+                                siswa baru menggunakan metode
+                                Multi-Attribute Utility Theory (MAUT).</p>
+                            <p>2. Membangun tampilan antarmuka (frontend) menggunakan dasar React JS, HTML, dan CSS yang
+                                terintegrasi dengan backend
+                                (Node.js, Express.js) serta database MySQL.</p>
+                            <p>3. Mengelola dan merancang fitur data siswa, kriteria, subkriteria, hingga proses
+                                perhitungan nilai akhir secara sistematis.</p>
+                            <p>4. Mengembangkan fitur ekspor laporan hasil seleksi dalam format PDF yang siap cetak dan
+                                disesuaikan dengan standar format surat
+                                resmi serta kop surat sekolah.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-reveal="left">
+                        <div class="timeline-dot">
+                            <i class="fa-solid fa-file-circle-check"></i>
+                        </div>
+                        <div class="timeline-content glass-card">
+                            <span class="timeline-date"><i class="fa-solid fa-calendar-days"></i> Administrasi &
+                                Data</span>
+                            <h3>Microsoft Office Data</h3>
+                            <p class="timeline-sub">Pengolahan Dokumen & Laporan Bisnis</p>
+                            <p>Menyusun laporan data spreadsheet berformula presisi, dokumen administrasi rapi, dan
+                                slide presentasi yang siap pakai untuk kebutuhan profesional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="section-header text-center" data-reveal="up">
+                    <span class="section-subtitle">HUBUNGI SAYA</span>
+                    <h2 class="section-title">Mari Bekerja Sama</h2>
+                    <div class="title-bar"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Contact Information Cards -->
+                    <div class="contact-info-cards" data-reveal="left">
+                        <div class="contact-card glass-card">
+                            <div class="contact-icon">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>LinkedIn Profil</h4>
+                                <p>muhamadramdani-</p>
+                                <a href="https://www.linkedin.com/in/muhamadramdani-" target="_blank"
+                                    rel="noopener noreferrer" class="contact-link">
+                                    Kunjungi Profil <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-card glass-card">
+                            <div class="contact-icon">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Instagram Resmi</h4>
+                                <p>@mramdaninf_</p>
+                                <a href="https://instagram.com/mramdaninf_" target="_blank" rel="noopener noreferrer"
+                                    class="contact-link">
+                                    Kunjungi Profil <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-card glass-card">
+                            <div class="contact-icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email Direct</h4>
+                                <p>ramdaninfajrin2@gmail.com</p>
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ramdaninfajrin2@gmail.com"
+                                    target="_blank">
+                                    Kirim Email
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-card glass-card">
+                            <div class="contact-icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Lokasi</h4>
+                                <p>Indonesia 🇮🇩</p>
+                                <span class="contact-status"><span class="pulse-dot inline"></span> Tersedia untuk
+                                    Pekerjaan Remote / Hybrid</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#hero" class="brand-logo">
+                    <span class="logo-accent">M</span>RAMDANI<span class="logo-dot">.</span>
+                </a>
+                <p>Portofolio Muhamad Ramdani Novfitra Fajrin.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Navigasi Cepat</h4>
+                <ul>
+                    <li><a href="#hero">Beranda</a></li>
+                    <li><a href="#about">Tentang Saya</a></li>
+                    <li><a href="#skills">Keahlian</a></li>
+                    <li><a href="#projects">Portofolio</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>Sosial Media</h4>
+                <div class="footer-icons">
+                    <a href="https://www.linkedin.com/in/muhamadramdani-" target="_blank" rel="noopener noreferrer"
+                        aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://instagram.com/mramdaninf_" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="mailto:ramdaninfajrin2@gmail.com" aria-label="Email"><i
+                            class="fa-solid fa-envelope"></i></a>
+                    <a href="#hero" aria-label="Beranda"><i class="fa-solid fa-globe"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 <strong>Muhamad Ramdani Novfitra Fajrin</strong>. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Modals for Project Details -->
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+
+    <div class="modal glass-card" id="modal-1">
+        <button class="modal-close" aria-label="Tutup Modal">&times;</button>
+        <div class="modal-content">
+            <span class="modal-category">Frontend Web Development</span>
+            <h2>Dashboard SPK Smp dwiguna</h2>
+            <div class="modal-body">
+                <p>Pengembangan web dashboard analitik interaktif yang menyajikan visualisasi data penjualan, statistik
+                    pengunjung, serta ringkasan aktivitas dalam tampilan kartu yang bersih dan responsif.</p>
+                <h4>Teknologi & Fitur:</h4>
+                <ul>
+                    <li>Struktur HTML5 & layout CSS Grid murni</li>
+                    <li>Toggle Mode Gelap & Terang dinamis</li>
+                    <li>Interaktivitas chart dan ringkasan statistik</li>
+                    <li>Desain sepenuhnya adaptif untuk perangkat mobile & desktop</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal glass-card" id="modal-3">
+        <button class="modal-close" aria-label="Tutup Modal">&times;</button>
+        <div class="modal-content">
+            <span class="modal-category">Microsoft Office & Data</span>
+            <h2>Automated Financial & Stock Report System</h2>
+            <div class="modal-body">
+                <p>Solusi otomatisasi pengolahan data keuangan dan inventaris stok barang menggunakan Microsoft Excel.
+                    Mengurangi waktu pengerjaan laporan secara manual hingga 70% dengan keakuratan tinggi.</p>
+                <h4>Komponen Sistem:</h4>
+                <ul>
+                    <li>Penggunaan rumus kompleks (XLOOKUP, IF Nesting, SUMIFS)</li>
+                    <li>Pivot Table & Dynamic Pivot Charts untuk laporan bulanan</li>
+                    <li>Desain dashboard ringkasan eksekutif yang rapi</li>
+                    <li>Ekspor otomatis ke format presentasi PowerPoint & PDF</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal glass-card" id="modal-4">
+        <button class="modal-close" aria-label="Tutup Modal">&times;</button>
+        <div class="modal-content">
+            <span class="modal-category">Frontend Web & UI System</span>
+            <h2>Sistem Informasi Perpustakaan MA Al-Khairiyah</h2>
+            <div class="modal-body">
+                <p>Pengembangan antarmuka login dan autentikasi pengguna pada Sistem Informasi Perpustakaan MA
+                    Al-Khairiyah dengan konsep desain split-screen modern, interaktif, dan mudah digunakan.</p>
+                <h4>Keunggulan:</h4>
+                <ul>
+                    <li>Formulir login interaktif dengan fitur toggle sembunyikan/tampilkan password</li>
+                    <li>Integrasi identitas resmi dan logo MA Al-Khairiyah</li>
+                    <li>Tata letak split-screen responsif dan nyaman bagi pengguna</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Main JavaScript File -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>

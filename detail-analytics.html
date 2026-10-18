@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Projek - Interactive Analytics Web Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-main: #f3f4f6;
+            --text-sub: #9ca3af;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .glass-box {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 24px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-back:hover {
+            transform: translateX(-5px);
+        }
+
+        .header-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .category-badge {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .project-title {
+            font-size: 2.2rem;
+            margin: 0 0 16px 0;
+            line-height: 1.2;
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        /* STYLES UNTUK GAMBAR SUPAYA PRESISI DI DALAM BORDER */
+        .project-image-container {
+            width: 100%;
+            margin: 25px 0 35px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            /* Memastikan sudut gambar ikut melengkung rapi */
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            background: #000;
+            /* Latar belakang hitam jika ada sisa ruang */
+        }
+
+        .project-img,
+        .project-image-container img {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            /* Atur batas tinggi maksimal kotak */
+            display: block;
+            object-fit: contain;
+            /* KUNCI: Mengecilkan seluruh gambar secara proporsional agar FIT di dalam kotak */
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            margin-top: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            color: #38bdf8;
+        }
+
+        .description {
+            line-height: 1.8;
+            color: #d1d5db;
+        }
+
+        .feature-list {
+            padding-left: 20px;
+            line-height: 1.8;
+            color: #d1d5db;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <a href="index.html#projects" class="btn-back">
+            <i class="fa-solid fa-arrow-left"></i> Kembali ke Portofolio
+        </a>
+
+        <div class="glass-box">
+            <div class="header-meta">
+                <span class="category-badge">Frontend Web</span>
+                <span style="color: var(--text-sub);">2026</span>
+            </div>
+
+            <h1 class="project-title">Interactive Analytics Web Portal</h1>
+
+            <div class="tech-tags">
+                <span class="tag"><i class="fa-brands fa-html5"></i> HTML5</span>
+                <span class="tag"><i class="fa-css3-alt"></i> CSS3 Grid</span>
+                <span class="tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+                <span class="tag">Dark Mode</span>
+                <span class="tag">Data Visualization</span>
+            </div>
+
+            <!-- HASIL FOTO PROJEK MASUK DI SINI -->
+            <div class="project-image-container">
+                <img src="img/Dashboard.jpg" alt="Preview Dashboard">
+            </div>
+
+            <h2 class="section-title">Ringkasan Projek</h2>
+            <p class="description">
+                Pengembangan Dashboard Sistem Pendukung Keputusan (SPK) penerimaan siswa baru berbasis metode MAUT untuk
+                SMP Dwiguna. Projek ini menyajikan visualisasi data terintegrasi, mulai dari ringkasan total siswa,
+                kriteria penilaian, siswa diterima, peringkat siswa (Top Ranking), hingga informasi visi dan misi
+                sekolah secara intuitif."
+            </p>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
