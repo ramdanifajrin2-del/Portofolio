@@ -1366,15 +1366,17 @@ section {
    9. CONTACT SECTION
    -------------------------------------------------------------------------- */
 .contact-grid {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 2.5rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .contact-info-cards {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    width: 100%;
+    max-width: 680px;
 }
 
 .contact-card {
