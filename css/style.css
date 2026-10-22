@@ -1136,6 +1136,10 @@ section {
     background: linear-gradient(135deg, #3b1d11 0%, #78350f 100%);
 }
 
+.preview-school {
+    background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
+}
+
 .preview-overlay {
     position: absolute;
     top: 0.85rem;
