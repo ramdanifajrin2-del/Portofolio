@@ -1132,6 +1132,10 @@ section {
     background: linear-gradient(135deg, #312e81 0%, #4338ca 100%);
 }
 
+.preview-coffee {
+    background: linear-gradient(135deg, #3b1d11 0%, #78350f 100%);
+}
+
 .preview-overlay {
     position: absolute;
     top: 0.85rem;
