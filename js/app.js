@@ -188,11 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------------
     const revealElements = document.querySelectorAll('[data-reveal]');
 
-    const revealObserver = new IntersectionObserver((entries, observer) => {
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('revealed');
-                observer.unobserve(entry.target);
+            } else {
+                entry.target.classList.remove('revealed');
             }
         });
     }, {
