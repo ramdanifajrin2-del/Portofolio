@@ -6,29 +6,30 @@
    1. CSS VARIABLES & THEMES
    -------------------------------------------------------------------------- */
 :root {
-    /* Color Palette - Bright / Light Theme (Default) */
-    --bg-primary: #f8fafc;
-    --bg-secondary: #f1f5f9;
-    --bg-card: rgba(255, 255, 255, 0.85);
+    /* Color Palette - Lavender + Indigo Light Theme (Default) */
+    --bg-primary: #F5F3FF;
+    --bg-secondary: #FAF9FF;
+    --bg-card: rgba(255, 255, 255, 0.9);
     --bg-card-hover: rgba(255, 255, 255, 0.98);
     --bg-glass: rgba(255, 255, 255, 0.7);
-    --border-glass: rgba(226, 232, 240, 0.9);
+    --border-glass: #E5E1F5;
     --border-glass-hover: rgba(99, 102, 241, 0.5);
 
-    --text-primary: #0f172a;
-    --text-secondary: #334155;
+    --text-primary: #1E1B4B;
+    --text-secondary: #475569;
     --text-muted: #64748b;
 
-    /* Brand Accent Colors */
-    --accent-indigo: #4f46e5;
-    --accent-cyan: #0284c7;
+    /* Brand Accent Colors - Lavender + Indigo */
+    --accent-indigo: #4F46E5;
+    --accent-secondary: #6366F1;
+    --accent-cyan: #6366F1;
     --accent-emerald: #059669;
     --accent-amber: #d97706;
-    --accent-pink: #db2777;
+    --accent-pink: #6366F1;
 
-    --gradient-primary: linear-gradient(135deg, #4f46e5 0%, #0284c7 100%);
-    --gradient-accent: linear-gradient(135deg, #9333ea 0%, #db2777 100%);
-    --gradient-glow: radial-gradient(circle, rgba(79, 70, 229, 0.12) 0%, transparent 70%);
+    --gradient-primary: linear-gradient(135deg, #C4B5FD 0%, #818CF8 100%);
+    --gradient-accent: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+    --gradient-glow: radial-gradient(circle, rgba(79, 70, 229, 0.1) 0%, transparent 70%);
 
     /* Fonts & Spacing */
     --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -39,29 +40,38 @@
     --radius-full: 9999px;
 
     /* Shadows & Transitions */
-    --shadow-glass: 0 10px 30px rgba(15, 23, 42, 0.08);
-    --shadow-glow: 0 0 25px rgba(79, 70, 229, 0.2);
+    --shadow-glass: 0 10px 30px rgba(30, 27, 75, 0.06);
+    --shadow-glow: 0 0 25px rgba(79, 70, 229, 0.18);
     --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Dark Theme Overrides */
+/* Dark Theme Overrides - Deep Indigo */
 [data-theme="dark"] {
-    --bg-primary: #0b0f19;
-    --bg-secondary: #111827;
-    --bg-card: rgba(17, 24, 39, 0.7);
-    --bg-card-hover: rgba(31, 41, 55, 0.8);
-    --bg-glass: rgba(255, 255, 255, 0.03);
-    --border-glass: rgba(255, 255, 255, 0.08);
-    --border-glass-hover: rgba(99, 102, 241, 0.4);
+    --bg-primary: #0F1021;
+    --bg-secondary: #17172E;
+    --bg-card: rgba(30, 27, 58, 0.75);
+    --bg-card-hover: rgba(30, 27, 58, 0.92);
+    --bg-glass: rgba(255, 255, 255, 0.04);
+    --border-glass: #37345A;
+    --border-glass-hover: rgba(129, 140, 248, 0.45);
 
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
+    --text-primary: #F5F3FF;
+    --text-secondary: #C4C0DD;
+    --text-muted: #8B87A8;
 
-    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.3);
+    --accent-indigo: #A5B4FC;
+    --accent-secondary: #818CF8;
+    --accent-cyan: #818CF8;
+    --accent-pink: #818CF8;
+
+    --gradient-primary: linear-gradient(135deg, #312E81 0%, #4338CA 100%);
+    --gradient-accent: linear-gradient(135deg, #818CF8 0%, #A5B4FC 100%);
+    --gradient-glow: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+    --shadow-glow: 0 0 25px rgba(129, 140, 248, 0.25);
 }
 
 /* --------------------------------------------------------------------------
@@ -124,7 +134,12 @@ ul {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #334155;
+    background: #C4B5FD;
+    border-radius: var(--radius-full);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: #37345A;
     border-radius: var(--radius-full);
 }
 
@@ -169,7 +184,7 @@ ul {
 .glow-1 {
     width: 450px;
     height: 450px;
-    background: #4f46e5;
+    background: #818CF8;
     top: -100px;
     left: -100px;
     animation: floatGlow 12s infinite alternate ease-in-out;
@@ -178,7 +193,7 @@ ul {
 .glow-2 {
     width: 500px;
     height: 500px;
-    background: #06b6d4;
+    background: #C4B5FD;
     bottom: 10%;
     right: -150px;
     animation: floatGlow 15s infinite alternate-reverse ease-in-out;
@@ -187,10 +202,22 @@ ul {
 .glow-3 {
     width: 350px;
     height: 350px;
-    background: #a855f7;
+    background: #6366F1;
     top: 40%;
     left: 30%;
     animation: floatGlow 18s infinite alternate ease-in-out;
+}
+
+[data-theme="dark"] .glow-1 {
+    background: #4338CA;
+}
+
+[data-theme="dark"] .glow-2 {
+    background: #312E81;
+}
+
+[data-theme="dark"] .glow-3 {
+    background: #4F46E5;
 }
 
 @keyframes floatGlow {
@@ -209,7 +236,13 @@ ul {
 
 /* Utility Classes */
 .gradient-text {
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #4F46E5 0%, #818CF8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="dark"] .gradient-text {
+    background: linear-gradient(135deg, #A5B4FC 0%, #818CF8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -258,7 +291,7 @@ ul {
 }
 
 .logo-dot {
-    color: var(--accent-cyan);
+    color: var(--accent-secondary);
 }
 
 .nav-list {
@@ -351,6 +384,11 @@ ul {
     flex-direction: column;
     justify-content: center;
     position: relative;
+    background: linear-gradient(180deg, rgba(196, 181, 253, 0.12) 0%, rgba(129, 140, 248, 0.06) 40%, transparent 70%);
+}
+
+[data-theme="dark"] .hero-section {
+    background: linear-gradient(180deg, rgba(49, 46, 129, 0.2) 0%, rgba(67, 56, 202, 0.08) 40%, transparent 70%);
 }
 
 .hero-container {
@@ -419,7 +457,7 @@ ul {
 .typing-container {
     font-size: 1.3rem;
     font-weight: 600;
-    color: var(--accent-cyan);
+    color: var(--accent-secondary);
     margin-bottom: 1.5rem;
     min-height: 2rem;
 }
@@ -471,14 +509,23 @@ ul {
 }
 
 .btn-primary {
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
     color: #ffffff;
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5);
+}
+
+[data-theme="dark"] .btn-primary {
+    background: linear-gradient(135deg, #4338CA 0%, #6366F1 100%);
+    box-shadow: 0 4px 15px rgba(67, 56, 202, 0.4);
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    box-shadow: 0 8px 25px rgba(67, 56, 202, 0.6);
 }
 
 .btn-secondary {
@@ -500,21 +547,30 @@ ul {
 }
 
 .btn-outline:hover {
-    color: var(--accent-pink);
-    border-color: var(--accent-pink);
+    color: var(--accent-indigo);
+    border-color: var(--accent-indigo);
     transform: translateY(-3px);
 }
 
 .btn-cv {
-    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    background: linear-gradient(135deg, #6366F1 0%, #818CF8 100%);
     color: #ffffff;
-    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
 }
 
 .btn-cv:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(5, 150, 105, 0.6);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
     color: #ffffff;
+}
+
+[data-theme="dark"] .btn-cv {
+    background: linear-gradient(135deg, #4338CA 0%, #818CF8 100%);
+    box-shadow: 0 4px 15px rgba(67, 56, 202, 0.4);
+}
+
+[data-theme="dark"] .btn-cv:hover {
+    box-shadow: 0 8px 25px rgba(67, 56, 202, 0.6);
 }
 
 .btn-sm {
@@ -577,7 +633,7 @@ ul {
     width: 140px;
     height: 140px;
     border-radius: 50%;
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #4F46E5 0%, #818CF8 100%);
     padding: 3px;
     display: flex;
     align-items: center;
@@ -664,14 +720,14 @@ ul {
 .tech-code {
     top: 20px;
     right: 0;
-    color: #06b6d4;
+    color: #818CF8;
     animation-delay: 1.3s;
 }
 
 .tech-office {
     bottom: 10px;
     left: 20px;
-    color: #10b981;
+    color: #C4B5FD;
     animation-delay: 2.6s;
 }
 
@@ -766,7 +822,7 @@ section {
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 2px;
-    color: var(--accent-cyan);
+    color: var(--accent-indigo);
     display: block;
     margin-bottom: 0.5rem;
 }
@@ -829,7 +885,7 @@ section {
 .stat-plus {
     font-size: 2rem;
     font-weight: 800;
-    color: var(--accent-cyan);
+    color: var(--accent-secondary);
 }
 
 .stat-label {
@@ -864,13 +920,13 @@ section {
 }
 
 .icon-purple {
-    background: rgba(168, 85, 247, 0.15);
-    color: #a855f7;
+    background: rgba(99, 102, 241, 0.15);
+    color: #6366F1;
 }
 
 .icon-blue {
-    background: rgba(6, 182, 212, 0.15);
-    color: #06b6d4;
+    background: rgba(79, 70, 229, 0.15);
+    color: #4F46E5;
 }
 
 .icon-green {
@@ -1050,16 +1106,24 @@ section {
 .skill-level-bar {
     width: 100%;
     height: 6px;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(99, 102, 241, 0.1);
     border-radius: var(--radius-full);
     overflow: hidden;
 }
 
+[data-theme="dark"] .skill-level-bar {
+    background: rgba(129, 140, 248, 0.12);
+}
+
 .level-fill {
     height: 100%;
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #4F46E5 0%, #818CF8 100%);
     border-radius: var(--radius-full);
     transition: width 1s ease-in-out;
+}
+
+[data-theme="dark"] .level-fill {
+    background: linear-gradient(135deg, #4338CA 0%, #A5B4FC 100%);
 }
 
 /* --------------------------------------------------------------------------
@@ -1109,7 +1173,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #1e1b4b 0%, #311b92 100%);
+    background: linear-gradient(135deg, #312E81 0%, #4338CA 100%);
     text-decoration: none;
     color: inherit;
     cursor: pointer;
@@ -1117,27 +1181,27 @@ section {
 }
 
 .preview-design {
-    background: linear-gradient(135deg, #4c1d95 0%, #831843 100%);
+    background: linear-gradient(135deg, #3730A3 0%, #4F46E5 100%);
 }
 
 .preview-web {
-    background: linear-gradient(135deg, #064e3b 0%, #0284c7 100%);
+    background: linear-gradient(135deg, #1E1B4B 0%, #4338CA 100%);
 }
 
 .preview-office {
-    background: linear-gradient(135deg, #14532d 0%, #15803d 100%);
+    background: linear-gradient(135deg, #312E81 0%, #6366F1 100%);
 }
 
 .preview-landing {
-    background: linear-gradient(135deg, #312e81 0%, #4338ca 100%);
+    background: linear-gradient(135deg, #3730A3 0%, #818CF8 100%);
 }
 
 .preview-coffee {
-    background: linear-gradient(135deg, #3b1d11 0%, #78350f 100%);
+    background: linear-gradient(135deg, #1E1B4B 0%, #3730A3 100%);
 }
 
 .preview-school {
-    background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
+    background: linear-gradient(135deg, #312E81 0%, #4F46E5 100%);
 }
 
 .preview-overlay {
@@ -1214,7 +1278,7 @@ section {
     height: calc(100% - 24px);
     overflow: hidden;
     position: relative;
-    background: #0b0f19;
+    background: #0F1021;
 }
 
 .mockup-screen img,
@@ -1244,7 +1308,7 @@ section {
 
 .icon-large {
     font-size: 2.2rem;
-    color: var(--accent-cyan);
+    color: var(--accent-indigo);
 }
 
 .project-body {
@@ -1349,7 +1413,7 @@ section {
     display: inline-block;
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--accent-cyan);
+    color: var(--accent-secondary);
     margin-bottom: 0.5rem;
 }
 
@@ -1421,7 +1485,7 @@ section {
 .contact-link {
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--accent-cyan);
+    color: var(--accent-indigo);
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -1653,13 +1717,13 @@ section {
 }
 
 .modal-close:hover {
-    color: var(--accent-pink);
+    color: var(--accent-indigo);
 }
 
 .modal-category {
     font-size: 0.8rem;
     font-weight: 700;
-    color: var(--accent-cyan);
+    color: var(--accent-indigo);
     text-transform: uppercase;
 }
 
