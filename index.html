@@ -55,6 +55,10 @@
             display: none;
         }
 
+        html.skip-cinematic #cinematic-intro {
+            display: none !important;
+        }
+
         /* ---- Full-screen background image ---- */
         .ci-bg {
             position: absolute;
@@ -431,6 +435,36 @@
             color: rgba(255, 255, 255, 0.55);
         }
     </style>
+
+    <!-- Early Navigation Detection: Mencegah flash opening saat navigasi kembali dari detail project -->
+    <script>
+        (function () {
+            var isReload = false;
+            try {
+                var nav = performance.getEntriesByType && performance.getEntriesByType('navigation');
+                if (nav && nav.length > 0) {
+                    isReload = (nav[0].type === 'reload');
+                } else if (window.performance && window.performance.navigation) {
+                    isReload = (window.performance.navigation.type === 1);
+                }
+            } catch (e) {}
+
+            if (!isReload) {
+                var ref = document.referrer || '';
+                var isFromDetail = (window.location.search.indexOf('from=detail') !== -1) ||
+                                   /detail-[a-zA-Z0-9_-]+\.html/i.test(ref) ||
+                                   ref.indexOf('detail-') !== -1 ||
+                                   (window.performance && window.performance.getEntriesByType &&
+                                    window.performance.getEntriesByType('navigation')[0] &&
+                                    window.performance.getEntriesByType('navigation')[0].type === 'back_forward' &&
+                                    history.state && (history.state.wentToDetail || history.state.introShown));
+
+                if (isFromDetail) {
+                    document.documentElement.classList.add('skip-cinematic');
+                }
+            }
+        })();
+    </script>
 </head>
 
 <body>
@@ -475,7 +509,7 @@
 
             <!-- Tagline / subtitle -->
             <p class="ci-subtitle" id="ciSubtitle">
-                Frontend Developer &amp;&nbsp;Administrasi
+                Frontend Developer &amp;&nbsp;Data Analyst
             </p>
 
             <!-- Bottom thin line -->
@@ -969,7 +1003,8 @@
                 <div class="projects-grid">
                     <!-- Project Item 1: R COFFE -->
                     <div class="project-card glass-card" data-category="web design" data-reveal="up">
-                        <a href="https://ramdanifajrin2-del.github.io/R-Coffe/" target="_blank" rel="noopener noreferrer" class="project-preview preview-coffee"
+                        <a href="https://ramdanifajrin2-del.github.io/R-Coffe/" target="_blank"
+                            rel="noopener noreferrer" class="project-preview preview-coffee"
                             aria-label="Lihat Live Demo R COFFE — Coffee Shop Website">
                             <div class="preview-overlay">
                                 <span class="preview-badge">Coffee Shop Website</span>
@@ -979,7 +1014,8 @@
                                     <span></span><span></span><span></span>
                                 </div>
                                 <div class="mockup-screen">
-                                    <img src="img/R coffe.jpg" alt="Preview R COFFE — Coffee Shop Website" loading="lazy">
+                                    <img src="img/R coffe.jpg" alt="Preview R COFFE — Coffee Shop Website"
+                                        loading="lazy">
                                 </div>
                             </div>
                         </a>
@@ -991,7 +1027,8 @@
                             </div>
                             <h3 class="project-title">R COFFE — Coffee Shop Website</h3>
                             <p class="project-excerpt">
-                                Website kedai kopi modern dengan fitur kategori menu dan animasi scroll reveal, dibuat menggunakan HTML, CSS, dan JavaScript.
+                                Website kedai kopi modern dengan fitur kategori menu dan animasi scroll reveal, dibuat
+                                menggunakan HTML, CSS, dan JavaScript.
                             </p>
                             <div class="project-tech">
                                 <span>HTML5</span>
@@ -1000,7 +1037,8 @@
                                 <span>Responsive</span>
                             </div>
                             <div class="project-actions">
-                                <a href="https://ramdanifajrin2-del.github.io/R-Coffe/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                                <a href="https://ramdanifajrin2-del.github.io/R-Coffe/" target="_blank"
+                                    rel="noopener noreferrer" class="btn btn-sm btn-primary">
                                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
                                 </a>
                             </div>
@@ -1009,7 +1047,8 @@
 
                     <!-- Project Item 2: Website SMP Dwiguna -->
                     <div class="project-card glass-card" data-category="web" data-reveal="up">
-                        <a href="https://ramdanifajrin2-del.github.io/Website-Sekolah-Smp-dwiguna/" target="_blank" rel="noopener noreferrer" class="project-preview preview-school"
+                        <a href="https://ramdanifajrin2-del.github.io/Website-Sekolah-Smp-dwiguna/" target="_blank"
+                            rel="noopener noreferrer" class="project-preview preview-school"
                             aria-label="Lihat Live Demo Website SMP Dwiguna">
                             <div class="preview-overlay">
                                 <span class="preview-badge">School Website</span>
@@ -1031,7 +1070,8 @@
                             </div>
                             <h3 class="project-title">Website SMP Dwiguna</h3>
                             <p class="project-excerpt">
-                                Website informasi sekolah yang menampilkan profil, informasi akademik, berita, PPDB online, dan kontak sekolah.
+                                Website informasi sekolah yang menampilkan profil, informasi akademik, berita, PPDB
+                                online, dan kontak sekolah.
                             </p>
                             <div class="project-tech">
                                 <span>HTML5</span>
@@ -1040,7 +1080,8 @@
                                 <span>Responsive</span>
                             </div>
                             <div class="project-actions">
-                                <a href="https://ramdanifajrin2-del.github.io/Website-Sekolah-Smp-dwiguna/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                                <a href="https://ramdanifajrin2-del.github.io/Website-Sekolah-Smp-dwiguna/"
+                                    target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
                                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
                                 </a>
                             </div>
@@ -1166,6 +1207,48 @@
                             </div>
                             <div class="project-actions">
                                 <a href="detail-corporate.html" class="btn btn-sm btn-primary">
+                                    <i class="fa-solid fa-circle-info"></i> Detail Projek
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Item 6: Dashboard Analisis Penjualan Mobil -->
+                    <div class="project-card glass-card" data-category="office" data-reveal="up">
+                        <a href="detail-car-sales.html" class="project-preview preview-office"
+                            aria-label="Lihat Detail Dashboard Analisis Penjualan Mobil">
+                            <div class="preview-overlay">
+                                <span class="preview-badge">Data Analytics</span>
+                            </div>
+                            <div class="preview-mockup">
+                                <div class="mockup-header">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="mockup-screen">
+                                    <img src="img/dashboard-penjualan-mobil.png"
+                                        alt="Preview Dashboard Analisis Penjualan Mobil" loading="lazy">
+                                </div>
+                            </div>
+                        </a>
+
+                        <div class="project-body">
+                            <div class="project-meta">
+                                <span class="category-tag">Data Analytics</span>
+                                <span class="date-tag">2026</span>
+                            </div>
+                            <h3 class="project-title">Dashboard Analisis Penjualan Mobil</h3>
+                            <p class="project-excerpt">
+                                Dashboard interaktif Microsoft Excel untuk menganalisis performa penjualan mobil
+                                berdasarkan area, bulan, merek, dan tipe kendaraan dengan kalkulasi total penjualan serta profit.
+                            </p>
+                            <div class="project-tech">
+                                <span>Microsoft Excel</span>
+                                <span>PivotTable</span>
+                                <span>PivotChart</span>
+                                <span>Slicer</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="detail-car-sales.html" class="btn btn-sm btn-primary">
                                     <i class="fa-solid fa-circle-info"></i> Detail Projek
                                 </a>
                             </div>
@@ -1461,6 +1544,56 @@
             var intro = document.getElementById('cinematic-intro');
             if (!intro) return;
 
+            // 1. Deteksi apakah halaman utama sedang di-refresh (F5 atau Ctrl + R)
+            var isReload = false;
+            try {
+                var navEntries = performance.getEntriesByType && performance.getEntriesByType('navigation');
+                if (navEntries && navEntries.length > 0) {
+                    isReload = (navEntries[0].type === 'reload');
+                } else if (window.performance && window.performance.navigation) {
+                    isReload = (window.performance.navigation.type === 1);
+                }
+            } catch (e) {}
+
+            // 2. Deteksi apakah navigasi berasal dari halaman detail project
+            var ref = document.referrer || '';
+            var isDetailReferrer = /detail-[a-zA-Z0-9_-]+\.html/i.test(ref) || ref.indexOf('detail-') !== -1;
+            var hasDetailQuery = window.location.search.indexOf('from=detail') !== -1;
+            var isBackForward = false;
+            try {
+                var navEntries = performance.getEntriesByType && performance.getEntriesByType('navigation');
+                if (navEntries && navEntries.length > 0) {
+                    isBackForward = (navEntries[0].type === 'back_forward');
+                } else if (window.performance && window.performance.navigation) {
+                    isBackForward = (window.performance.navigation.type === 2);
+                }
+            } catch (e) {}
+            var isBackFromDetail = isBackForward && history.state && (history.state.wentToDetail || history.state.introShown);
+
+            // BUKAN reload, dan terdapat indikasi kuat kembali dari halaman detail
+            var isFromDetail = !isReload && (document.documentElement.classList.contains('skip-cinematic') || hasDetailQuery || isDetailReferrer || isBackFromDetail);
+
+            // Bersihkan parameter ?from=detail dari URL agar address bar tetap rapi (misal index.html#projects)
+            if (hasDetailQuery) {
+                try {
+                    var cleanUrl = window.location.pathname + window.location.hash;
+                    window.history.replaceState({ introShown: true }, '', cleanUrl);
+                } catch (e) {}
+            }
+
+            // ATURAN 3: Opening cinematic TIDAK muncul ketika pengunjung kembali ke halaman utama dari halaman detail project
+            if (isFromDetail) {
+                intro.classList.add('fade-out');
+                intro.classList.add('hidden');
+                intro.style.display = 'none';
+                document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
+                return;
+            }
+
+            // ATURAN 1 & 2: Opening cinematic muncul saat pertama kali dibuka ATAU WAJIB saat di-refresh (F5 / Ctrl + R)
+            document.documentElement.classList.remove('skip-cinematic');
+
             var bg = document.getElementById('ciBg');
             var eyeline = document.getElementById('ciEyeline');
             var pretitle = document.getElementById('ciPretitle');
@@ -1497,8 +1630,33 @@
                     // Restore page scrolling smoothly
                     document.body.style.overflow = '';
                     document.documentElement.style.overflow = '';
+
+                    // Tandai di history state bahwa intro sudah selesai ditayangkan
+                    try {
+                        window.history.replaceState({ introShown: true }, '', window.location.href);
+                    } catch (e) {}
                 }, 900);
             }
+
+            // Tandai saat pengunjung berpindah ke halaman detail project
+            document.querySelectorAll('a[href*="detail-"]').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    try {
+                        window.history.replaceState({ introShown: true, wentToDetail: true }, '', window.location.href);
+                    } catch (e) {}
+                });
+            });
+
+            // Handle browser bfcache (Back/Forward Cache)
+            window.addEventListener('pageshow', function (event) {
+                if (event.persisted) {
+                    intro.classList.add('fade-out');
+                    intro.classList.add('hidden');
+                    intro.style.display = 'none';
+                    document.body.style.overflow = '';
+                    document.documentElement.style.overflow = '';
+                }
+            });
 
             // Allow skipping via button, overlay click, or Escape key
             if (skipBtn) {
@@ -1517,7 +1675,7 @@
             });
 
             /* ==================================================
-               ANIMATION SEQUENCE:
+               ANIMATION SEQUENCE (100% Dipertahankan):
                1. t=40ms   : Bars open, background photo fades in & zooms in
                2. t=450ms  : Eyeline expands & "PORTFOLIO" pretitle fades in
                3. t=900ms  : Name "Muhamad Ramdani" reveals from left to right

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Projek - Dashboard Analisis Penjualan Mobil</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.75);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --primary-accent: #10b981;
+            --primary-hover: #059669;
+            --text-main: #f3f4f6;
+            --text-sub: #9ca3af;
+            --card-inner-bg: rgba(255, 255, 255, 0.03);
+            --border-inner: rgba(255, 255, 255, 0.07);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 960px;
+            width: 100%;
+        }
+
+        .glass-box {
+            background: var(--card-bg);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #34d399;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 24px;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .btn-back:hover {
+            transform: translateX(-5px);
+            color: #6ee7b7;
+        }
+
+        .header-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .category-badge {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .project-title {
+            font-size: 2.2rem;
+            margin: 0 0 16px 0;
+            line-height: 1.25;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tag i {
+            color: #34d399;
+        }
+
+        /* Action Buttons Group */
+        .actions-toolbar {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin: 20px 0 28px 0;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary-action {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+        }
+
+        .btn-primary-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+            color: #ffffff;
+        }
+
+        .btn-secondary-action {
+            background: rgba(255, 255, 255, 0.06);
+            color: #e5e7eb;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-secondary-action:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(52, 211, 153, 0.4);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* Notice banner for online status */
+        .status-banner {
+            display: none;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #93c5fd;
+            align-items: flex-start;
+            gap: 10px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .status-banner.visible {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-6px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Large Project Image Container */
+        .project-image-container {
+            width: 100%;
+            margin: 25px 0 35px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            background: #111827;
+        }
+
+        .project-img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            display: block;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+
+        .image-caption {
+            padding: 10px 16px;
+            background: rgba(0, 0, 0, 0.4);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            margin-top: 36px;
+            margin-bottom: 14px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            color: #34d399;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .description {
+            line-height: 1.8;
+            color: #d1d5db;
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+
+        .feature-list {
+            padding-left: 20px;
+            line-height: 1.8;
+            color: #d1d5db;
+            margin-bottom: 24px;
+        }
+
+        .feature-list li {
+            margin-bottom: 8px;
+        }
+
+        .feature-list strong {
+            color: #f3f4f6;
+        }
+
+        /* Feature cards grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+            margin-bottom: 24px;
+        }
+
+        .feature-card {
+            background: var(--card-inner-bg);
+            border: 1px solid var(--border-inner);
+            border-radius: 12px;
+            padding: 18px;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(52, 211, 153, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .feature-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            color: #34d399;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .feature-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+
+        /* Metric Highlights */
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .kpi-box {
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 10px;
+            padding: 14px 18px;
+        }
+
+        .kpi-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #a7f3d0;
+            margin-bottom: 4px;
+        }
+
+        .kpi-val {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .glass-box {
+                padding: 22px;
+            }
+
+            .project-title {
+                font-size: 1.7rem;
+            }
+
+            .actions-toolbar {
+                flex-direction: column;
+            }
+
+            .btn-action {
+                width: 100%;
+            }
+
+            .project-image-container img {
+                max-height: 380px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- LINK KEMBALI KE HALAMAN PORTOFOLIO (#projects) -->
+        <a href="index.html?from=detail#projects" class="btn-back">
+            <i class="fa-solid fa-arrow-left"></i> Kembali ke Portofolio
+        </a>
+
+        <div class="glass-box">
+            <div class="header-meta">
+                <span class="category-badge">
+                    <i class="fa-solid fa-chart-pie"></i> Data Analytics
+                </span>
+                <span style="color: var(--text-sub);">2026</span>
+            </div>
+
+            <h1 class="project-title">Dashboard Analisis Penjualan Mobil</h1>
+
+            <div class="tech-tags">
+                <span class="tag"><i class="fa-solid fa-file-excel"></i> Microsoft Excel</span>
+                <span class="tag"><i class="fa-solid fa-table-cells"></i> PivotTable</span>
+                <span class="tag"><i class="fa-solid fa-chart-pie"></i> PivotChart</span>
+                <span class="tag"><i class="fa-solid fa-filter"></i> Slicer Interaktif</span>
+                <span class="tag"><i class="fa-solid fa-arrow-trend-up"></i> Total Penjualan & Profit</span>
+            </div>
+
+            <!-- DUA TOMBOL AKSI UTAMA -->
+            <div class="actions-toolbar">
+                <a href="files/Penjualan Mobil.xlsx" download="Penjualan Mobil.xlsx" class="btn-action btn-primary-action">
+                    <i class="fa-solid fa-file-arrow-down"></i> Download File Excel
+                </a>
+                <button type="button" class="btn-action btn-secondary-action" id="btnOnlineDashboard" onclick="checkExcelOnline()">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Lihat Dashboard Excel
+                </button>
+            </div>
+
+            <!-- Notifikasi jika Excel Online belum dikonfigurasi -->
+            <div id="onlineStatusBanner" class="status-banner" role="status">
+                <i class="fa-solid fa-circle-info" style="font-size: 1.1rem; margin-top: 2px;"></i>
+                <div>
+                    <strong>Informasi Tautan Excel Online:</strong><br>
+                    Tautan <em>Excel Online</em> saat ini belum dikonfigurasi / belum ditautkan ke layanan cloud Microsoft 365 / OneDrive. Untuk melihat, berinteraksi dengan Slicer, dan mengeksplorasi formula PivotTable secara penuh, silakan gunakan tombol <strong>Download File Excel</strong> di atas untuk membuka workbook <code>Penjualan Mobil.xlsx</code> secara langsung di aplikasi Microsoft Excel Anda.
+                </div>
+            </div>
+
+            <!-- FOTO DASHBOARD BERUKURAN BESAR -->
+            <div class="project-image-container">
+                <img src="img/dashboard-penjualan-mobil.png" alt="Screenshot Dashboard Analisis Penjualan Mobil" class="project-img">
+                <div class="image-caption">
+                    <span><i class="fa-solid fa-image"></i> Tampilan Dashboard Excel Interaktif</span>
+                    <span>Format: .xlsx Workbook</span>
+                </div>
+            </div>
+
+            <!-- RINGKASAN METRIK FINANSIAL -->
+            <div class="kpi-row">
+                <div class="kpi-box">
+                    <div class="kpi-label">Total Profit Kotor</div>
+                    <div class="kpi-val">Rp 194.628.000.000</div>
+                </div>
+                <div class="kpi-box">
+                    <div class="kpi-label">Total Profit Bersih</div>
+                    <div class="kpi-val">Rp 35.663.400.000</div>
+                </div>
+                <div class="kpi-box">
+                    <div class="kpi-label">Cakupan Wilayah</div>
+                    <div class="kpi-val">Bandung, Jakarta, Surabaya</div>
+                </div>
+            </div>
+
+            <!-- RINGKASAN PROJEK -->
+            <h2 class="section-title">
+                <i class="fa-solid fa-file-lines"></i> Ringkasan Projek
+            </h2>
+            <p class="description">
+                <strong>Dashboard Analisis Penjualan Mobil</strong> dibuat untuk menganalisis dan memantau performa penjualan kendaraan secara menyeluruh dan interaktif berbasis Microsoft Excel. Proyek ini menyajikan data analitik operasional yang komprehensif, memungkinkan manajemen memahami tren perputaran unit mobil, mengevaluasi kontribusi omzet penjualan, serta mengidentifikasi profitabilitas bersih dari setiap transaksi.
+            </p>
+            <p class="description">
+                Pemetaan data dirancang secara multi-dimensi berdasarkan 4 parameter utama:
+            </p>
+            <ul class="feature-list">
+                <li><strong>Area Penjualan:</strong> Pemantauan performa pasar otomotif di kota-kota strategis, yaitu <em>Bandung</em>, <em>Jakarta</em>, dan <em>Surabaya</em>.</li>
+                <li><strong>Periode Waktu (Bulan):</strong> Analisis pergerakan volume dan pendapatan secara berkala (<em>Januari, Februari, Maret,</em> hingga <em>April</em>).</li>
+                <li><strong>Merek Kendaraan:</strong> Evaluasi performa penjualan merek-merek ternama, meliputi <em>Honda</em>, <em>Mitsubishi</em>, <em>Nissan</em>, <em>Suzuki</em>, dan <em>Toyota</em>.</li>
+                <li><strong>Tipe Kendaraan:</strong> Analisis mendalam per model mobil spesifik (<em>Avanza, Brio, CRV, Ertiga, Innova, Jazz, Juke, Land Cruiser, March, Pajero, Swift,</em> dan <em>Xpander</em>).</li>
+            </ul>
+
+            <!-- FITUR & TEKNIKAL ANALITIK -->
+            <h2 class="section-title">
+                <i class="fa-solid fa-sliders"></i> Fitur & Komponen Analitik
+            </h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-card-header">
+                        <i class="fa-solid fa-table-cells"></i>
+                        <span>PivotTable Multi-Dimensi</span>
+                    </div>
+                    <p>
+                        Struktur tabel dinamis yang mengagregasikan ratusan baris data transaksi penjualan mobil untuk mengkalkulasi total unit terjual, harga per unit, total omzet, hingga kalkulasi keuntungan secara otomatis dan akurat.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card-header">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span>PivotChart Interaktif</span>
+                    </div>
+                    <p>
+                        Visualisasi grafis terhubung langsung: Donut Chart untuk proporsi stok terjual per merek, Column Chart untuk perbandingan total omzet per merek, dan Bar Chart untuk perincian stok terjual per tipe kendaraan.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card-header">
+                        <i class="fa-solid fa-filter"></i>
+                        <span>Slicer & Filter Dinamis</span>
+                    </div>
+                    <p>
+                        Tombol filter interaktif (Area & Bulan) yang tersinkronisasi langsung ke seluruh PivotTable dan visual chart, memungkinkan filtrasi satu-klik tanpa merusak struktur data dasar.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card-header">
+                        <i class="fa-solid fa-money-bill-trend-up"></i>
+                        <span>Analisis Total Penjualan & Profit</span>
+                    </div>
+                    <p>
+                        Ringkasan kartu metrik (KPI) yang menyajikan Total Profit dan Total Profit Bersih secara instan, mempermudah perbandingan margin profit antar tipe kendaraan dan efektivitas area penjualan.
+                    </p>
+                </div>
+            </div>
+
+            <!-- PANDUAN PENGGUNAAN -->
+            <h2 class="section-title">
+                <i class="fa-solid fa-circle-question"></i> Cara Menggunakan Dashboard
+            </h2>
+            <ul class="feature-list">
+                <li>Klik tombol <strong>Download File Excel</strong> di bagian atas untuk mengunduh berkas <code>Penjualan Mobil.xlsx</code>.</li>
+                <li>Buka file di Microsoft Excel, lalu pilih sheet <strong>Pivot</strong> untuk mengakses dashboard utama.</li>
+                <li>Klik tombol pada panel <strong>Area</strong> (misalnya: Jakarta) atau <strong>Bulan</strong> (misalnya: Mar) untuk memfilter seluruh visual chart secara interaktif.</li>
+                <li>Tahan tombol <code>Ctrl</code> untuk memilih lebih dari satu filter Area atau Bulan secara bersamaan.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function checkExcelOnline() {
+            var banner = document.getElementById('onlineStatusBanner');
+            if (banner) {
+                banner.classList.add('visible');
+                banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+    </script>
+</body>
+
+</html>
