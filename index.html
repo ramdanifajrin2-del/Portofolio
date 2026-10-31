@@ -447,17 +447,17 @@
                 } else if (window.performance && window.performance.navigation) {
                     isReload = (window.performance.navigation.type === 1);
                 }
-            } catch (e) {}
+            } catch (e) { }
 
             if (!isReload) {
                 var ref = document.referrer || '';
                 var isFromDetail = (window.location.search.indexOf('from=detail') !== -1) ||
-                                   /detail-[a-zA-Z0-9_-]+\.html/i.test(ref) ||
-                                   ref.indexOf('detail-') !== -1 ||
-                                   (window.performance && window.performance.getEntriesByType &&
-                                    window.performance.getEntriesByType('navigation')[0] &&
-                                    window.performance.getEntriesByType('navigation')[0].type === 'back_forward' &&
-                                    history.state && (history.state.wentToDetail || history.state.introShown));
+                    /detail-[a-zA-Z0-9_-]+\.html/i.test(ref) ||
+                    ref.indexOf('detail-') !== -1 ||
+                    (window.performance && window.performance.getEntriesByType &&
+                        window.performance.getEntriesByType('navigation')[0] &&
+                        window.performance.getEntriesByType('navigation')[0].type === 'back_forward' &&
+                        history.state && (history.state.wentToDetail || history.state.introShown));
 
                 if (isFromDetail) {
                     document.documentElement.classList.add('skip-cinematic');
@@ -587,7 +587,7 @@
                     </div>
 
                     <p class="hero-description">
-                        A fresh graduate with a functional understanding of <strong>UI/UX Design</strong>,
+                        A fresh graduate with a functional understanding of <strong>Data Analyst</strong>,
                         <strong>Frontend Web Development</strong>, and data management using <strong>MS Office</strong>.
                         Eager to learn, highly adaptable, and ready to explore new challenges and skills to contribute
                         effectively in the professional world.
@@ -704,14 +704,17 @@
                         <div class="about-text">
                             <h3>Halo! Saya Muhamad Ramdani Novfitra Fajrin</h3>
                             <p>
-                                Fresh graduate S1 Teknik Informatika dari Universitas Indraprasta PGRI dengan pengalaman
-                                PKL sebagai Admin Online di bidang digital printing serta pengalaman membangun aplikasi
-                                berbasis web melalui proyek Sistem Pendukung Keputusan (SPK) penerimaan siswa baru
-                                menggunakan metode MAUT. Memiliki kemampuan dalam pengembangan web, pengolahan data
-                                menggunakan Microsoft Office, serta pembuatan desain grafis berbasis referensi. Pribadi
-                                yang cepat belajar, disiplin, bertanggung jawab, adaptif, dan mampu bekerja dalam tim,
-                                serta memiliki motivasi untuk terus berkembang dan berkontribusi secara profesional di
-                                bidang administrasi, teknologi informasi, maupun desain grafis.
+                                .Fresh Graduate S1 Teknik Informatika Universitas Indraprasta PGRI dengan minat
+                                berkarier di bidang Front-End Development dan Data Analyst. Memiliki pengalaman
+                                mengembangkan aplikasi berbasis web melalui proyek tugas akhir Sistem Pendukung
+                                Keputusan Penerimaan Siswa Baru menggunakan metode MAUT. Menguasai dasar HTML, CSS, dan
+                                React.js. Memiliki pengalaman praktik dalam pengolahan dan analisis data menggunakan
+                                Microsoft Excel dan MySQL melalui dataset simulasi, termasuk analisis penjualan,
+                                evaluasi performa produk, serta pembuatan dashboard interaktif untuk menyajikan data
+                                secara visual agar lebih mudah dibaca dan dipahami. Aktif dalam organisasi sebagai
+                                anggota Hubungan Pers dan Dokumentasi, dengan tanggung jawab dalam dokumentasi,
+                                publikasi, serta pengeditan desain visual menggunakan Canva dan Adobe Illustrator.
+                                Memiliki karakter teliti, adaptif, cepat belajar, dan bertanggung jawab
                             </p>
 
                         </div>
@@ -1239,7 +1242,8 @@
                             <h3 class="project-title">Dashboard Analisis Penjualan Mobil</h3>
                             <p class="project-excerpt">
                                 Dashboard interaktif Microsoft Excel untuk menganalisis performa penjualan mobil
-                                berdasarkan area, bulan, merek, dan tipe kendaraan dengan kalkulasi total penjualan serta profit.
+                                berdasarkan area, bulan, merek, dan tipe kendaraan dengan kalkulasi total penjualan
+                                serta profit.
                             </p>
                             <div class="project-tech">
                                 <span>Microsoft Excel</span>
@@ -1553,7 +1557,7 @@
                 } else if (window.performance && window.performance.navigation) {
                     isReload = (window.performance.navigation.type === 1);
                 }
-            } catch (e) {}
+            } catch (e) { }
 
             // 2. Deteksi apakah navigasi berasal dari halaman detail project
             var ref = document.referrer || '';
@@ -1567,7 +1571,7 @@
                 } else if (window.performance && window.performance.navigation) {
                     isBackForward = (window.performance.navigation.type === 2);
                 }
-            } catch (e) {}
+            } catch (e) { }
             var isBackFromDetail = isBackForward && history.state && (history.state.wentToDetail || history.state.introShown);
 
             // BUKAN reload, dan terdapat indikasi kuat kembali dari halaman detail
@@ -1578,7 +1582,7 @@
                 try {
                     var cleanUrl = window.location.pathname + window.location.hash;
                     window.history.replaceState({ introShown: true }, '', cleanUrl);
-                } catch (e) {}
+                } catch (e) { }
             }
 
             // ATURAN 3: Opening cinematic TIDAK muncul ketika pengunjung kembali ke halaman utama dari halaman detail project
@@ -1634,7 +1638,7 @@
                     // Tandai di history state bahwa intro sudah selesai ditayangkan
                     try {
                         window.history.replaceState({ introShown: true }, '', window.location.href);
-                    } catch (e) {}
+                    } catch (e) { }
                 }, 900);
             }
 
@@ -1643,7 +1647,7 @@
                 link.addEventListener('click', function () {
                     try {
                         window.history.replaceState({ introShown: true, wentToDetail: true }, '', window.location.href);
-                    } catch (e) {}
+                    } catch (e) { }
                 });
             });
 
