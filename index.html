@@ -1589,36 +1589,8 @@
             var intro = document.getElementById('cinematic-intro');
             if (!intro) return;
 
-            // 1. Deteksi apakah halaman utama sedang di-refresh (F5 atau Ctrl + R)
-            var isReload = false;
-            try {
-                var navEntries = performance.getEntriesByType && performance.getEntriesByType('navigation');
-                if (navEntries && navEntries.length > 0) {
-                    isReload = (navEntries[0].type === 'reload');
-                } else if (window.performance && window.performance.navigation) {
-                    isReload = (window.performance.navigation.type === 1);
-                }
-            } catch (e) { }
-
-            // 2. Deteksi apakah navigasi berasal dari halaman detail project
-            var ref = document.referrer || '';
-            var isDetailReferrer = /detail-[a-zA-Z0-9_-]+\.html/i.test(ref) || ref.indexOf('detail-') !== -1;
+            // Deteksi navigasi kembali dari halaman detail project
             var hasDetailQuery = window.location.search.indexOf('from=detail') !== -1;
-            var isBackForward = false;
-            try {
-                var navEntries = performance.getEntriesByType && performance.getEntriesByType('navigation');
-                if (navEntries && navEntries.length > 0) {
-                    isBackForward = (navEntries[0].type === 'back_forward');
-                } else if (window.performance && window.performance.navigation) {
-                    isBackForward = (window.performance.navigation.type === 2);
-                }
-            } catch (e) { }
-            var isBackFromDetail = isBackForward && history.state && (history.state.wentToDetail || history.state.introShown);
-
-            // BUKAN reload, dan terdapat indikasi kuat kembali dari halaman detail
-            var isFromDetail = !isReload && (document.documentElement.classList.contains('skip-cinematic') || hasDetailQuery || isDetailReferrer || isBackFromDetail);
-
-            // Bersihkan parameter ?from=detail dari URL agar address bar tetap rapi (misal index.html#projects)
             if (hasDetailQuery) {
                 try {
                     var cleanUrl = window.location.pathname + window.location.hash;
@@ -1626,17 +1598,18 @@
                 } catch (e) { }
             }
 
+            var isFromDetail = document.documentElement.classList.contains('skip-cinematic');
+
             // ATURAN 3: Opening cinematic TIDAK muncul ketika pengunjung kembali ke halaman utama dari halaman detail project
             if (isFromDetail) {
-                intro.classList.add('fade-out');
-                intro.classList.add('hidden');
+                intro.classList.add('fade-out', 'hidden');
                 intro.style.display = 'none';
                 document.body.style.overflow = '';
                 document.documentElement.style.overflow = '';
                 return;
             }
 
-            // ATURAN 1 & 2: Opening cinematic muncul saat pertama kali dibuka ATAU WAJIB saat di-refresh (F5 / Ctrl + R)
+            // ATURAN 1 & 2: Opening cinematic muncul saat pertama kali dibuka ATAU saat di-refresh (F5 / Ctrl + R)
             document.documentElement.classList.remove('skip-cinematic');
 
             var bg = document.getElementById('ciBg');

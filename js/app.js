@@ -3,6 +3,8 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    'use strict';
+
     // ----------------------------------------------------------------------
     // 1. TYPING EFFECT IN HERO SECTION
     // ----------------------------------------------------------------------
@@ -68,16 +70,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------------------------
-    // 3. NAVBAR SCROLL & MOBILE MENU
+    // 3. NAVBAR SCROLL & MOBILE MENU (OPTIMIZED WITH RAF & PASSIVE LISTENER)
     // ----------------------------------------------------------------------
     const navbar = document.getElementById('navbar');
     const mobileToggle = document.getElementById('mobileToggle');
     const navMenu = document.getElementById('navMenu');
     const navLinks = document.querySelectorAll('.nav-link');
     const backToTop = document.getElementById('backToTop');
+    const sections = document.querySelectorAll('section[id]');
+    let isScrolling = false;
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+    function updateScrollState() {
+        const scrollY = window.scrollY;
+
+        if (scrollY > 50) {
             navbar?.classList.add('scrolled');
             backToTop?.classList.add('visible');
         } else {
@@ -87,31 +93,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Highlight active nav section
         let currentSection = '';
-        const sections = document.querySelectorAll('section[id]');
         sections.forEach(section => {
             const sectionTop = section.offsetTop - 120;
             const sectionHeight = section.offsetHeight;
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
                 currentSection = section.getAttribute('id');
             }
         });
 
         navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSection}`) {
-                link.classList.add('active');
-            }
+            link.classList.toggle('active', link.getAttribute('href') === `#${currentSection}`);
         });
-    });
+
+        isScrolling = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!isScrolling) {
+            isScrolling = true;
+            window.requestAnimationFrame(updateScrollState);
+        }
+    }, { passive: true });
 
     if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             const icon = mobileToggle.querySelector('i');
-            if (navMenu.classList.contains('active')) {
-                icon.className = 'fa-solid fa-xmark';
-            } else {
-                icon.className = 'fa-solid fa-bars';
+            if (icon) {
+                icon.className = navMenu.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
             }
         });
 
@@ -119,9 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
-                if (mobileToggle.querySelector('i')) {
-                    mobileToggle.querySelector('i').className = 'fa-solid fa-bars';
-                }
+                const icon = mobileToggle.querySelector('i');
+                if (icon) icon.className = 'fa-solid fa-bars';
             });
         });
     }
@@ -133,55 +141,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------------------------
-    // 4. SKILLS CATEGORY FILTERING
+    // 4 & 5. REUSABLE CATEGORY FILTERING (SKILLS & PROJECTS)
     // ----------------------------------------------------------------------
-    const skillTabs = document.querySelectorAll('.skill-tab');
-    const skillCards = document.querySelectorAll('.skill-card');
+    function setupCategoryFilter(buttons, items, filterAttr, displayType) {
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
 
-    skillTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            skillTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
+                const filter = btn.getAttribute(filterAttr);
 
-            const category = tab.getAttribute('data-category');
+                items.forEach(item => {
+                    const itemCat = item.getAttribute('data-category') || '';
+                    const categories = itemCat.split(' ');
+                    const isMatch = (filter === 'all' || itemCat === filter || categories.includes(filter));
 
-            skillCards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-                if (category === 'all' || cardCategory === category) {
-                    card.style.display = 'block';
-                    card.style.animation = 'fadeIn 0.4s ease forwards';
-                } else {
-                    card.style.display = 'none';
-                }
+                    item.style.display = isMatch ? displayType : 'none';
+                    if (isMatch) {
+                        item.style.animation = 'fadeIn 0.4s ease forwards';
+                    }
+                });
             });
         });
-    });
+    }
 
-    // ----------------------------------------------------------------------
-    // 5. PROJECTS CATEGORY FILTERING
-    // ----------------------------------------------------------------------
-    const projectFilterBtns = document.querySelectorAll('.project-filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-
-    projectFilterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            projectFilterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filter = btn.getAttribute('data-filter');
-
-            projectCards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category') || '';
-                const categories = cardCategory.split(' ');
-                if (filter === 'all' || cardCategory === filter || categories.includes(filter)) {
-                    card.style.display = 'flex';
-                    card.style.animation = 'fadeIn 0.4s ease forwards';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
+    setupCategoryFilter(document.querySelectorAll('.skill-tab'), document.querySelectorAll('.skill-card'), 'data-category', 'block');
+    setupCategoryFilter(document.querySelectorAll('.project-filter-btn'), document.querySelectorAll('.project-card'), 'data-filter', 'flex');
 
     // ----------------------------------------------------------------------
     // 6. SCROLL REVEAL OBSERVER
@@ -212,6 +197,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (statsSection) {
         const statsObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting && !counted) {
+                counted = true;
+                statsObserver.unobserve(statsSection);
+
                 statNumbers.forEach(stat => {
                     const target = parseInt(stat.getAttribute('data-target') || '0', 10);
                     let count = 0;
@@ -228,7 +216,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     }, 30);
                 });
-                counted = true;
             }
         }, { threshold: 0.3 });
 
@@ -275,9 +262,8 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const name = document.getElementById('senderName').value;
-            const email = document.getElementById('senderEmail').value;
-            const subject = document.getElementById('messageSubject').value;
+            const name = document.getElementById('senderName')?.value || '';
+            const subject = document.getElementById('messageSubject')?.value || '';
 
             showToast(`Terima kasih ${name}! Pesan Anda ("${subject}") telah dikirim. ✨`);
 
@@ -294,8 +280,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const toast = document.createElement('div');
         toast.className = 'toast';
-        toast.innerHTML = `<i class="fa-solid fa-circle-check" style="color: var(--accent-emerald);"></i> <span>${message}</span>`;
 
+        const icon = document.createElement('i');
+        icon.className = 'fa-solid fa-circle-check';
+        icon.style.color = 'var(--accent-emerald)';
+
+        const span = document.createElement('span');
+        span.textContent = message;
+
+        toast.append(icon, span);
         toastContainer.appendChild(toast);
 
         setTimeout(() => {
